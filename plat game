@@ -1,0 +1,77 @@
+import pygame
+import sys
+import math
+import random
+
+pygame.init()
+pygame.display.set_caption("Platformer Game Intro by Anthony Cruz Guzman")
+
+Width_Screen = 1920
+Height_Screen = 1080
+
+Black = (0,0,0)
+White = (255,255,255)
+Green = (0,255,0)
+Red = (255,0,0)
+Blue = (0, 0, 255)
+
+#Screen
+screen = pygame.display.set_mode((Width_Screen,Height_Screen))
+
+#Class Player
+class Sprite():
+  def _init_(self, x, y, width, height):
+    self.x = x
+    self.y = y
+    self.dx = width
+    self.dy = height
+    self.color = White
+    self.height = height
+    self.friction = 0.8
+
+  def goto(self, x, y):
+    self.x = x
+    self.y = y
+  
+  def render(self):
+    pygame.draw.rect(screen, self.color, pygame.Rect(int(self.x - self.width/2.0),int(self.y - self.height/2.0), self.width, self.height)
+
+  def is_aabb_collision(self, other):
+    x_collision = (math.fabs(self.x - other.x) * 2) < (self.width + other.width)
+    y_collision = (math.fabs(self.y - other.y) * 2) < (self.height + other.height)
+    return (x_collision and y_collision)
+#Font Creation
+
+#Sound Creation
+
+#Game Objects
+
+#Main Game Loop
+while True:
+  for event in pygame.event.get():
+      if event.type == pygame.QUIT: 
+          sys.exit()
+
+      #Keyboard Controls
+    if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_LEFT:
+        pass
+      elif event.key == pygame.K_RIGHT:
+        pass
+      elif event.key == pygame.K_SPACE:
+        pass
+#Move/Update object
+#Check for collisions
+#Border check the player
+
+#Render (Draw Stuff)
+#Fill the background color
+screen.fill(Black)
+
+#Render Objects
+
+#Flip the display
+pygame.display.filp()
+
+#Set the FPS
+clock.tick(30)
